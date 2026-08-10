@@ -730,3 +730,33 @@ body.mm-open{overflow:hidden}
 
 /* reviews stars stay gold; verified-review star mark -> green */
 .rv-card .rv-by span svg{fill:var(--green-600)!important}
+
+/* ============================================================
+   DARKER THEME — a couple of light sections moved to ink
+   (kept isolated so no two dark sections sit back-to-back)
+   ============================================================ */
+
+/* --- About / Story on ink --- */
+.story{background:var(--ink);color:#fff}
+.story .eyebrow{color:var(--cyan)}
+.story .eyebrow::before{background:var(--cyan)}
+.story-body h2{color:#fff}
+.story .lead{color:#c2c8cc}
+.story-list li{color:#d8d8de}
+.story-media .m-badge{background:var(--ink-800);border:1px solid var(--ink-700)}
+
+/* --- How It Works on ink (dark glass step cards) --- */
+.how{background:var(--ink);color:#fff}
+.how .eyebrow.center{color:var(--cyan)}
+.how .eyebrow.center::before,.how .eyebrow.center::after{background:var(--cyan)}
+.how .section-head h2{color:#fff}
+.how::before{background:
+  radial-gradient(600px 440px at 10% 12%, rgba(0,114,188,.20), transparent 60%),
+  radial-gradient(680px 520px at 92% 90%, rgba(140,198,63,.12), transparent 62%)}
+.how .how-step{background:rgba(255,255,255,.05)!important;border:1px solid rgba(255,255,255,.12)!important;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:0 22px 54px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)!important}
+.how .how-step h3{color:#fff}
+.how .how-step p{color:#b4b4bb}
+.how .how-step .num{color:var(--cyan);border-color:var(--cyan)}
+.how .how-step:not(:last-child)::after{background:rgba(255,255,255,.16)}
