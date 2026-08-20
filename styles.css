@@ -977,3 +977,24 @@ body.mm-open{overflow:hidden}
 /* article hero meta sits on the dark subhero — lighten for contrast */
 .subhero .article-meta{color:rgba(255,255,255,.72)}
 .subhero .article-meta .fnum,.subhero .article-meta a{color:var(--green)}
+
+/* ============================================================
+   SERVICES DROPDOWN — desktop hover menu + mobile sub-links
+   ============================================================ */
+.nav ul li.has-drop{position:relative}
+.nav ul li.has-drop>a{display:inline-flex;align-items:center}
+.caret{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.4;margin-left:5px;
+  transition:transform .25s var(--ease)}
+.nav ul li.has-drop:hover>a .caret,.nav ul li.has-drop:focus-within>a .caret{transform:rotate(180deg)}
+.nav .drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);
+  background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+  padding:8px;min-width:238px;display:grid;gap:2px;opacity:0;visibility:hidden;
+  transition:opacity .22s var(--ease),transform .22s var(--ease);z-index:70}
+.nav ul li.has-drop:hover .drop,.nav ul li.has-drop:focus-within .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(6px)}
+.nav .drop::before{content:"";position:absolute;top:-14px;left:0;right:0;height:16px}
+.nav .drop a{padding:11px 14px;border-radius:9px;font-size:14.5px;font-weight:500;color:var(--ink-800);white-space:nowrap}
+.nav .drop a::after{content:none}
+.nav .drop a:hover,.nav .drop a.active{background:var(--cyan-050);color:var(--cyan-600)}
+/* mobile off-canvas sub-links */
+.mobile-menu nav a.mm-sub{font-size:15px;font-weight:500;color:#b9c0c6;padding-left:20px}
+.mobile-menu nav a.mm-sub:hover,.mobile-menu nav a.mm-sub.active{color:var(--cyan)}
