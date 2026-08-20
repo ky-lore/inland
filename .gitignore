@@ -1,0 +1,10 @@
+# Large client source archives (photos/videos delivered by client)
+*.zip
+
+# Raw, uncompressed video originals — only the web-optimized versions are committed
+assets/video/originals/
+
+# Staging / scratch
+_incoming/
+.DS_Store
+node_modules/
