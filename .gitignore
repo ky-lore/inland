@@ -8,3 +8,4 @@ assets/video/originals/
 _incoming/
 .DS_Store
 node_modules/
+.claude/
