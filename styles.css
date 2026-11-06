@@ -47,7 +47,6 @@ body{
   background:var(--paper);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -211,7 +210,7 @@ header.nav.scrolled{box-shadow:var(--shadow-sm)}
 
 /* ---------- products — Netflix-style horizontal accordion (from 5blox) ---------- */
 .prod-stack{display:flex;gap:3px;height:clamp(560px,78vh,860px);overflow:hidden;
-  background:var(--ink);margin-top:52px;width:100vw;margin-left:calc(50% - 50vw)}
+  background:var(--ink);margin-top:52px}
 .prod-card{flex:1;position:relative;overflow:hidden;cursor:pointer;min-width:0;background:var(--ink);
   color:#fff;text-decoration:none;isolation:isolate;
   transition:flex .65s cubic-bezier(.5,0,.1,1)}
@@ -365,7 +364,7 @@ header.nav.scrolled{box-shadow:var(--shadow-sm)}
 .finance{position:relative;color:#fff;border-radius:0;background-color:var(--ink);
   background-image:
     linear-gradient(100deg, rgba(9,10,12,.97) 0%, rgba(9,10,12,.9) 46%, rgba(14,30,38,.72) 100%),
-    url("assets/financing-detail.webp");
+    url("assets/band.jpg");
   background-size:cover;background-position:center right;background-repeat:no-repeat}
 .finance .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:50px;align-items:center;padding:80px 28px}
 .finance h2{font-size:clamp(28px,3.4vw,44px)}
@@ -435,7 +434,7 @@ footer{background:var(--ink);color:#b7b7be;padding:74px 0 34px}
 .foot-social a:hover svg{stroke:var(--cyan)}
 .foot-col h4{font-family:var(--sans);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:18px}
 .foot-col ul{list-style:none;display:grid;gap:11px}
-.foot-col a{font-size:14.5px;color:#9a9aa1;transition:color .2s}
+.foot-col a,.foot-col .foot-hours{font-size:14.5px;color:#9a9aa1;transition:color .2s}
 .foot-col a:hover{color:var(--cyan)}
 .foot-bottom{border-top:1px solid var(--ink-700);margin-top:52px;padding-top:26px;display:flex;
   justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:#7a7a82}
@@ -998,3 +997,27 @@ body.mm-open{overflow:hidden}
 /* mobile off-canvas sub-links */
 .mobile-menu nav a.mm-sub{font-size:15px;font-weight:500;color:#b9c0c6;padding-left:20px}
 .mobile-menu nav a.mm-sub:hover,.mobile-menu nav a.mm-sub.active{color:var(--cyan)}
+
+/* ---------- lead forms: status + spam trap (forms.js) ---------- */
+.hp-field{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.leadcard form,.fc-card form{position:relative}
+.form-status{font-size:14px;line-height:1.5;border-radius:10px;padding:12px 14px;margin:0;border:1px solid transparent}
+.form-status[hidden]{display:none}
+.form-status a{color:inherit;font-weight:600;text-decoration:underline}
+.form-status.is-loading{background:#eef6fb;border-color:#cfe5f2;color:#1d4b66}
+.form-status.is-success{background:#eef8e4;border-color:#cde6b3;color:#2f5a12}
+.form-status.is-error{background:#fdf1ef;border-color:#f2cfc8;color:#7a2417}
+form[data-lead-form] button[disabled]{opacity:.65;cursor:progress}
+form[data-lead-form] :user-invalid{border-color:#d0573f}
+
+/* ---------- responsive fixes (audit Nov 2026) ----------
+   Grid tracks default to minmax(auto,1fr), so two side-by-side inputs
+   plus card padding forced the final-CTA column to ~374px and the page
+   to scroll sideways at 390px. Let tracks and fields shrink instead. */
+.leadcard .row,.fc-card .row{grid-template-columns:repeat(2,minmax(0,1fr))}
+.leadcard input,.leadcard select,.fc-card input,.fc-card select,.fc-card textarea{min-width:0;max-width:100%}
+@media(max-width:860px){.finalcta .wrap{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:480px){
+  .fc-card{padding:30px 22px}
+  .fc-card .row{grid-template-columns:minmax(0,1fr)}
+}
